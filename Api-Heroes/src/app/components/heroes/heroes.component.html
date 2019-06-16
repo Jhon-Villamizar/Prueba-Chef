@@ -1,24 +1,120 @@
 <div class="row">
   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12"
     *ngFor="let heroe of heroesService.heroes | paginate: { itemsPerPage: 9, currentPage: p}">
-    <div class="card mb-3" style="max-width: 540px;">
-        <h5 class="card-header">{{heroe.name}}</h5>
-        <div class="row no-gutters">
-          <div class="col-md-4 col-4">
+
+    <div *ngIf="list" data-target="#Detalle">
+      <div class="my-2"></div>
+      <div class="card mb-3">
+        <div class="row no-gutters"  (click)="mostrarHeroe(heroe)">
+          <div class="col-md-6 col-12 altimag">
             <img src="{{heroe.picture}}" class="card-img" alt="{{heroe.name}}">
           </div>
-          <div class="col-md-8 col-8">
+          <div class="col-md-6 col-12">
             <div class="card-body">
-              <h5 class="card-title">{{heroe.publisher}}</h5>
-              <p class="card-text">{{heroe.info}}</p>
+              <h5 class="card-title">{{heroe.name}}</h5>
+              <p><small><b class="casa">{{heroe.publisher}}</b></small></p>
+              <div class="info">
+                  <p >{{heroe.info}}</p>
+
+              </div>
             </div>
           </div>
+         
+        </div>
+        <div class="row">
+            <div class="voto">
+              <div class="boton">
+                <a (click)="votoLike(heroe.name)" class="col-6 text-center like"><svg xmlns="http://www.w3.org/2000/svg"
+                    x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                      stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                      font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                      style="mix-blend-mode: normal">
+                      <path d="M0,172v-172h172v172z" fill="none"></path>
+                      <g fill="#3498db">
+                        <path
+                          d="M63.06667,11.46667l-2.87786,20.01068l-13.56068,25.2513c-3.99613,7.43613 -11.75584,12.07135 -20.20104,12.07135h-3.49375v74.53333h11.46667c7.3444,7.3444 17.29818,11.46667 27.68125,11.46667h58.31875c6.33287,0 11.46667,-5.1338 11.46667,-11.46667v-6.04688c6.66467,-1.36041 11.4553,-7.2177 11.46667,-14.01979c-0.00591,-3.50609 -1.29669,-6.88842 -3.62812,-9.50703c5.62025,-2.07858 9.35431,-7.43401 9.36146,-13.4263c-0.00528,-4.51547 -2.13807,-8.76444 -5.75573,-11.46667c3.61766,-2.70222 5.75044,-6.9512 5.75573,-11.46667c0,-7.91608 -6.41725,-14.33333 -14.33333,-14.33333h-54.46667c0,0 5.73333,-18.72507 5.73333,-22.93333c0,-12.90573 0,-28.66667 -17.2,-28.66667z">
+                        </path>
+                      </g>
+                    </g>
+                  </svg>
+                </a>
+              </div>
+              <div class="boton">
+                <a (click)="votoDislike(heroe.name)" class="col-6 text-center dislike"><svg
+                    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172"
+                    style=" fill:#000000;">
+                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                      stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                      font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                      style="mix-blend-mode: normal">
+                      <path d="M0,172v-172h172v172z" fill="none"></path>
+                      <path
+                        d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z"
+                        fill="none"></path>
+                      <path
+                        d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z"
+                        fill="none"></path>
+                      <path d="" fill="none"></path>
+                      <g fill="#e74c3c">
+                        <path
+                          d="M62.08125,28.66667c-10.38307,0 -20.33685,4.12227 -27.68125,11.46667h-11.46667v74.53333h3.49375c8.4452,0 16.20491,4.63522 20.20104,12.07136l13.56068,25.2513l2.87786,20.01067h5.73333c17.2,0 17.2,-15.76093 17.2,-28.66667c0,-4.20827 -5.73333,-22.93333 -5.73333,-22.93333h54.46667c7.91608,0 14.33333,-6.41725 14.33333,-14.33333c-0.00528,-4.51547 -2.13807,-8.76444 -5.75573,-11.46667c3.61766,-2.70222 5.75044,-6.9512 5.75573,-11.46667c-0.00715,-5.9923 -3.74121,-11.34773 -9.36146,-13.4263c2.33143,-2.61861 3.62222,-6.00094 3.62812,-9.50703c-0.00074,-6.8105 -4.79377,-12.68009 -11.46667,-14.04219v-6.02448c0,-6.33287 -5.1338,-11.46667 -11.46667,-11.46667z">
+                        </path>
+                      </g>
+                    </g>
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<!-- Modal Trigger -->
+<!-- Modal -->
+<!-- Modal -->
+<div *ngIf="detail" id="#Detalle" class="col-md-12 personal">
+  <div class="volver">
+      <button type="button" class="btn btn-outline-danger" (click)="return()"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+        width="24" height="24"
+        viewBox="0 0 172 172"
+        style=" fill:#000000;"><g transform="translate(4.73,4.73) scale(0.945,0.945)"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="butt" stroke-linejoin="none" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g fill="#000000" stroke="#e74c3c" stroke-width="10" stroke-linejoin="round"><path d="M50.16667,26.66504v23.50163h68.08333c25.58826,0 46.58333,20.99508 46.58333,46.58333c0,25.58826 -20.99507,46.58333 -46.58333,46.58333h-3.58333c-2.58456,0.03655 -4.98858,-1.32136 -6.29153,-3.55376c-1.30295,-2.2324 -1.30295,-4.99342 0,-7.22582c1.30295,-2.2324 3.70697,-3.59031 6.29153,-3.55376h3.58333c17.77007,0 32.25,-14.47993 32.25,-32.25c0,-17.77007 -14.47993,-32.25 -32.25,-32.25h-68.08333v23.20768c0,4.7515 -5.6573,7.23542 -9.1403,4.00326l-31.76009,-29.46452c-2.80217,-2.80217 -2.80217,-7.33911 0,-10.13411l31.76009,-29.45052c0.87075,-0.80804 1.87688,-1.25126 2.89746,-1.39974c3.06173,-0.44545 6.24284,1.83937 6.24284,5.40299zM35.83333,136.16667c0,3.956 -3.21067,7.16667 -7.16667,7.16667c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667c0,-3.956 3.21067,-7.16667 7.16667,-7.16667c3.956,0 7.16667,3.21067 7.16667,7.16667zM64.5,136.16667c0,3.956 -3.21067,7.16667 -7.16667,7.16667c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667c0,-3.956 3.21067,-7.16667 7.16667,-7.16667c3.956,0 7.16667,3.21067 7.16667,7.16667zM93.16667,136.16667c0,3.956 -3.21067,7.16667 -7.16667,7.16667c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667c0,-3.956 3.21067,-7.16667 7.16667,-7.16667c3.956,0 7.16667,3.21067 7.16667,7.16667z"></path></g><path d="M0,172v-172h172v172z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><g fill="#ffffff" stroke="none" stroke-width="1" stroke-linejoin="miter"><path d="M43.92383,21.26204c-1.02058,0.14848 -2.02671,0.5917 -2.89746,1.39974l-31.76009,29.45052c-2.80217,2.795 -2.80217,7.33195 0,10.13411l31.76009,29.46452c3.483,3.23217 9.1403,0.74824 9.1403,-4.00326v-23.20768h68.08333c17.77007,0 32.25,14.47993 32.25,32.25c0,17.77007 -14.47993,32.25 -32.25,32.25h-3.58333c-2.58456,-0.03655 -4.98858,1.32136 -6.29153,3.55376c-1.30295,2.2324 -1.30295,4.99342 0,7.22582c1.30295,2.2324 3.70697,3.59031 6.29153,3.55376h3.58333c25.58826,0 46.58333,-20.99507 46.58333,-46.58333c0,-25.58826 -20.99507,-46.58333 -46.58333,-46.58333h-68.08333v-23.50163c0,-3.56363 -3.1811,-5.84845 -6.24284,-5.40299zM28.66667,129c-3.956,0 -7.16667,3.21067 -7.16667,7.16667c0,3.956 3.21067,7.16667 7.16667,7.16667c3.956,0 7.16667,-3.21067 7.16667,-7.16667c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667zM57.33333,129c-3.956,0 -7.16667,3.21067 -7.16667,7.16667c0,3.956 3.21067,7.16667 7.16667,7.16667c3.956,0 7.16667,-3.21067 7.16667,-7.16667c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667zM86,129c-3.956,0 -7.16667,3.21067 -7.16667,7.16667c0,3.956 3.21067,7.16667 7.16667,7.16667c3.956,0 7.16667,-3.21067 7.16667,-7.16667c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667z"></path></g><path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path></g></g></svg></button>
+    
+  </div>
+  <div class="my-5"></div>
+  <div class="card card-personal">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{modal.picture}}" class="card-img" alt="{{modal.name}}">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body body-personal">
+          <div class="title text-center">
+              <h3 class="card-title">Name</h3>
+              <h1 class="card-title"><b>{{modal.name}}</b></h1>
+          </div>
+          <div class="credenciales">
+              <h3 class="card-title">Company</h3>
+              <h2 class="card-text"><small class="text-muted"><b>{{modal.publisher}}</b></small></h2>
+          </div>
+          <div class="info">
+              <h3 class="card-title">Information</h3>
+              <h2 class="card-text"><small class="text-muted infosmall">{{modal.info}}</small></h2>
+          </div>
+          
         </div>
       </div>
     </div>
+  </div>
+
 </div>
 
-<div class="my-3"></div>
-<div class="text-center">
+<div class="text-center" *ngIf="list">
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
