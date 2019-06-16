@@ -15,10 +15,10 @@ export class HeroesComponent implements OnInit {
   ngOnInit() {
     this.listHeroes();
   }
-
+  // estado de los elemnetos lista y personal para la vista
   list = true;
   detail = false;
-
+  // metodo que trae todos los elementos del api
   listHeroes() {
     this.heroesService.getHeroes()
       .subscribe(res => {
@@ -26,50 +26,44 @@ export class HeroesComponent implements OnInit {
       });
 
   }
+
+  // metodo que selecciona y muestra el personaje seleccionado
   mostrarHeroe(heroe: Heroe, event) {
-    console.log('evento', event);
-    // event.stopPropagation();
     this.modal = heroe;
     this.list = false;
     this.detail = true;
-    
+
 
   }
-
   modal: Heroe = new Heroe;
-
+  // metodo que selecciona el heroe y le asigna el vito like y lo guarda en localstorage
   votoLike(id) {
-    
     id = id + ' Likes';
-    console.log(id);
-    if(!localStorage[id]){
-      localStorage.setItem(id,'1');
-      console.log('GUARDADO => ',localStorage.getItem(id));
+    if (!localStorage[id]) {
+      localStorage.setItem(id, '1');
     } else {
       var likei = parseInt(localStorage.getItem(id));
       likei++
       var likes = likei.toString();
       localStorage.setItem(id, likes)
-      console.log('GUARDADO => ',localStorage.getItem(id));
     }
   }
 
+  // metodo que selecciona el heroe y le asigana el voto dislike y lo guarda en localstorage
   votoDislike(id) {
     id = id + ' Dislikes';
-    console.log(id);
-    if(!localStorage[id]){
-      localStorage.setItem(id,'1');
-      console.log('GUARDADO => ',localStorage.getItem(id));
+    if (!localStorage[id]) {
+      localStorage.setItem(id, '1');
     } else {
       var likei = parseInt(localStorage.getItem(id));
       likei++
       var likes = likei.toString();
       localStorage.setItem(id, likes)
-      console.log('GUARDADO => ',localStorage.getItem(id));
     }
   }
 
-  return(){
+  // metodo que retorna de la vista personal a lista 
+  return() {
     this.list = true;
     this.detail = false;
   }

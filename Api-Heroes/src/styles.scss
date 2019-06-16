@@ -1,6 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 body {
 
+  .barnav {
+    height: 80px;
+
+    .content-img {
+      width: 25%;
+      margin: auto;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+
+      .img-logo {
+        width: 100%;
+        height: 220%;
+        position: relative;
+        bottom: 21px;
+      }
+    }
+  }
+
   .card {
     cursor: pointer;
     border: none;
@@ -26,7 +45,6 @@ body {
       .card-text:last-child {
         margin-bottom: 0;
         max-height: 77px;
-        overflow: hidden;
       }
 
       .card-title {
@@ -37,10 +55,6 @@ body {
         max-height: 102px;
         overflow: hidden;
       }
-    }
-
-    .no-gutters {
-      position: initial;
     }
 
     p {
@@ -100,67 +114,98 @@ body {
         .credenciales {
           margin-bottom: 30px;
         }
-        .info{}
+
+        .info {}
 
       }
 
     }
   }
-
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 320px) and (max-width: 374px) {
   body {
+    .barnav {
+        height: 59px;
+
+        .content-img {
+          width: 80%;
+          margin: auto;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+    
+          .img-logo {
+            width: 100%;
+            height: 220%;
+            position: relative;
+            bottom: 15px;
+          }
+        }
+      }
     .card {
       .altimag {
         height: 298px !important;
         overflow: hidden;
         border-radius: 200px;
         position: relative;
-
-        
       }
     }
-    .card{
-        .voto {
-            justify-content: center;
-        }
+
+    .card {
+      .voto {
+        justify-content: center;
+      }
     }
   }
+
   .personal {
-
-    .card-img{
-        height: 245px;
+    .volver {
+      margin-bottom: 10px;
     }
-    .card-personal {
-        .no-gutters{
 
-      .body-personal {
-            .title {
-                margin-bottom: 25px !important;
-                h1.card-title{
-                    b{
-                        font-size: 36px ;
-                    }
-                }
-             }
-     
-             .credenciales {
-                margin-bottom: 12px;
-             }
-             .info{
-                overflow: none;
-                 .infosmall{
-                     overflow: none;
-                 }
-                 
-             }
+    .card-img {
+      height: 300px;
+    }
+
+    .card-personal {
+      .no-gutters {
+        cursor: default;
+
+        .body-personal {
+          padding: 0px !important;
+
+          .title {
+            margin-bottom: 13px !important;
+
+            h1.card-title {
+              b {
+                font-size: 36px;
+              }
+            }
+          }
+
+          .credenciales {
+            margin-bottom: 12px;
+          }
+
+          .info {
+            overflow: visible;
+          }
         }
 
-       
+
 
       }
+
+    }
+  }
+
+  .nav {
+    .ngx-pagination {
+      padding: 0px;
+      font-size: 10px;
 
     }
   }
@@ -169,6 +214,24 @@ body {
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 375px) and (max-width: 424px) {
   body {
+    .barnav {
+        height: 59px;
+    
+        .content-img {
+          width: 80%;
+          margin: auto;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+    
+          .img-logo {
+            width: 100%;
+            height: 220%;
+            position: relative;
+            bottom: 15px;
+          }
+        }
+      }
     .card {
       .altimag {
         height: 341px !important;
@@ -177,17 +240,79 @@ body {
         position: relative;
       }
     }
-    .card{
-        .voto {
-            justify-content: center;
-        }
+
+    .card {
+      .voto {
+        justify-content: center;
+      }
     }
+
+    .personal {
+      .volver {
+        margin-bottom: 10px;
+      }
+
+      .card-img {
+        height: 370px;
+      }
+
+      .card-personal {
+        .no-gutters {
+          cursor: default;
+
+          .body-personal {
+            padding: 0px !important;
+
+            .title {
+              margin-bottom: 13px !important;
+
+              h1.card-title {
+                b {
+                  font-size: 36px;
+                }
+              }
+            }
+
+            .credenciales {
+              margin-bottom: 12px;
+            }
+
+            .info {
+              overflow: visible;
+            }
+          }
+
+
+
+        }
+
+      }
+    }
+
+
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 425px) and (max-width: 767px) {
   body {
+    .barnav {
+        height: 59px;
+    
+        .content-img {
+          width: 87%;
+          margin: auto;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+          .img-logo {
+            width: 100%;
+            height: 220%;
+            position: relative;
+            bottom: 15px;
+          }
+        }
+      }
     .card {
       .altimag {
         height: 394px !important;
@@ -196,17 +321,79 @@ body {
         position: relative;
       }
     }
-    .card{
-        .voto {
-            justify-content: center;
-        }
+
+    .card {
+      .voto {
+        justify-content: center;
+      }
     }
   }
+
+  .personal {
+    .volver {
+      margin-bottom: 10px;
+    }
+
+    .card-img {
+      height: 400px;
+    }
+
+    .card-personal {
+      .no-gutters {
+        cursor: default;
+
+        .body-personal {
+          padding: 0px !important;
+
+          .title {
+            margin-bottom: 13px !important;
+
+            h1.card-title {
+              b {
+                font-size: 36px;
+              }
+            }
+          }
+
+          .credenciales {
+            margin-bottom: 12px;
+          }
+
+          .info {
+            overflow: visible;
+          }
+        }
+
+
+
+      }
+
+    }
+  }
+
+
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) {
   body {
+    .barnav {
+        height: 59px;
+    
+        .content-img {
+          width: 37%;
+          margin: auto;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+          .img-logo {
+            width: 100%;
+            height: 220%;
+            position: relative;
+            bottom: 15px;
+          }
+        }
+      }
     .card {
       .altimag {
         height: 167px !important;
@@ -215,18 +402,129 @@ body {
         position: relative;
       }
     }
+
+    .personal {
+      .volver {
+        margin-bottom: 20px;
+      }
+
+      .card-img {
+        height: 400px;
+      }
+
+      .card-personal {
+        .no-gutters {
+          cursor: default;
+
+          .card-img {
+            width: 117%;
+          }
+
+          .body-personal {
+            margin-left: 38px;
+
+            .title {
+              margin-bottom: 13px !important;
+
+              h1.card-title {
+                b {
+                  font-size: 36px;
+
+                }
+              }
+            }
+
+            .credenciales {
+              margin-bottom: 12px;
+            }
+
+            .info {
+              overflow: visible;
+
+              .card-text {
+                font-size: 29px;
+              }
+
+              .voto {
+                justify-content: center;
+                margin-top: 15px;
+              }
+            }
+          }
+
+
+        }
+      }
+    }
+
   }
+
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) and (max-width: 1023px) {
-  body {
+  body {.barnav {
+    height: 59px;
+
+    .content-img {
+      width: 37%;
+      margin: auto;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      .img-logo {
+        width: 100%;
+        height: 220%;
+        position: relative;
+        bottom: 15px;
+      }
+    }
+  }
+  
     .card {
       .altimag {
         height: 227px !important;
         overflow: hidden;
         border-radius: 200px;
         position: relative;
+      }
+    }
+
+  }
+
+  .personal {
+    .volver {
+      margin-bottom: 20px;
+    }
+
+    .card-personal {
+      .no-gutters {
+        cursor: default;
+
+        .body-personal {
+          .title {
+            margin-bottom: 40px !important;
+          }
+
+          .credenciales {
+            margin-bottom: 12px;
+          }
+
+          .info {
+
+            overflow: visible;
+
+            .card-text {
+              font-size: 29px;
+            }
+
+            .voto {
+              justify-content: center !important;
+              margin-top: 20px;
+            }
+
+          }
+        }
       }
     }
   }
@@ -235,6 +533,23 @@ body {
 // Large devices (desktops, 992px and up)
 @media (min-width: 1024px) and (max-width: 1199px) {
   body {
+    .barnav {
+        height: 59px;
+    
+        .content-img {
+          width: 37%;
+          margin: auto;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+          .img-logo {
+            width: 100%;
+            height: 220%;
+            position: relative;
+            bottom: 15px;
+          }
+        }
+      }
     .card {
       .altimag {
         height: 227px !important;
@@ -243,14 +558,86 @@ body {
         position: relative;
       }
     }
-    .card{
-        .voto {
-            justify-content: flex-end;
-            margin-right: 19px;
+
+    .card {
+      .voto {
+        justify-content: flex-end;
+        margin-right: 19px;
+      }
+
+      .card-personal {
+        .no-gutters {
+          cursor: default;
+
+          .body-personal {
+            .info {
+              overflow: visible;
+            }
+          }
         }
+      }
+    }
+  }
+
+  .personal {
+    .volver {
+      margin-bottom: 20px;
+    }
+
+    .card-personal {
+      .no-gutters {
+        cursor: default;
+
+        .body-personal {
+          .title {
+            margin-bottom: 40px !important;
+          }
+
+          .credenciales {
+            margin-bottom: 12px;
+          }
+
+          .info {
+            overflow: visible;
+
+            .card-text {
+              font-size: 29px;
+            }
+
+            .voto {
+              justify-content: center !important;
+              margin-top: 32px;
+            }
+          }
+        }
+      }
     }
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+    
+  .personal {
+    .volver {
+      margin-bottom: 20px;
+    }
+
+    .card-personal {
+      cursor: default;
+
+      .no-gutters {
+        .body-personal {
+          .info {
+            overflow: visible;
+
+            .voto {
+              justify-content: center;
+              margin-top: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

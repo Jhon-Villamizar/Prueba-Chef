@@ -9,7 +9,7 @@ export class HeroesService {
   URI_API = 'http://localhost:3000/superheroes';
 
   constructor(private http: HttpClient) { }
-
+  // metodo que trae todos los elementos del api
   getHeroes(){
     return this.http.get(this.URI_API);
   }
